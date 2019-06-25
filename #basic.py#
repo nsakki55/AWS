@@ -1,0 +1,41 @@
+# coding: utf-8                                                                                                                                                                                                           
+from flask import Flask
+#from flask_httpauth import HTTPBasicAuth                                                                                                                                                                                 
+from decorator import requires_auth
+
+app = Flask(__name__)
+
+
+
+@app.route("/")
+def hello():
+    return 'AMAZON\n'
+
+
+@app.route("/secret")
+@requires_auth
+def basic():
+    return "SUCCESS"
+
+if __name__ == "__main__":
+    app.run()# coding: utf-8
+from flask import Flask
+#from flask_httpauth import HTTPBasicAuth
+from decorator import requires_auth
+
+app = Flask(__name__)
+
+
+
+@app.route("/")
+def hello():
+    return 'AMAZON\n'
+
+
+@app.route("/secret")
+@requires_auth
+def basic():
+    return "SUCCESS\n"
+
+if __name__ == "__main__":
+    app.run()
